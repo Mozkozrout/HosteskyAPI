@@ -52,4 +52,8 @@ class AuthController extends Controller
             'message' => 'Byli jste úspěšně odhlášeni'
         ]);
     }
+
+    public function getUser(){
+        return Auth::user(); 
+    }
 }
