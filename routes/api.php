@@ -23,10 +23,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Public Routes
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+//Route::resource('/posts', [PostController::class, 'index']);
+//Route::resource('/posts', [PostController::class, 'show']);
+//Route::resource('/posts', PostController::class);
 
 //Protected Routes
 Route::group(['middleware' => ['auth:sanctum']], function(){
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::post('/getuser', [AuthController::class, 'getUser']);
         Route::resource('/posts', PostController::class);
+        Route::get('/myposts', [PostController::class, 'myPosts']);
+        //Route::resource('/posts', [PostController::class, 'store']);
+        //Route::resource('/posts', [PostController::class, 'update']);
+        //Route::resource('/posts', [PostController::class, 'destroy']);
     });

@@ -21,9 +21,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostsResource::collection(
-            Post::where( 'user_id', Auth::user() -> id ) -> get()
-        );
+        return PostsResource::collection(Post::all());
     }
 
     /**
@@ -56,7 +54,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return $this -> isNotAuthorised($post) ? $this -> isNotAuthorised($post) : new PostsResource($post); 
+        return new PostsResource($post); 
     }
 
     /**
@@ -90,5 +88,17 @@ class PostController extends Controller
         if(Auth::user() -> id !== $post -> user_id){
             return $this -> error('', 'Nemáte dostatečná práva provést tento request', 403);
         }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myPosts()
+    {
+        return PostsResource::collection(
+            Post::where( 'user_id', Auth::user() -> id ) -> get()
+        );
     }
 }
