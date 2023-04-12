@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
             $table -> unsignedBigInteger('user_id');
-            $table -> integer('account_type');
             $table -> integer('height') -> nullable();
             $table -> integer('chest_size') -> nullable();
             $table -> integer('waist_size') -> nullable();
