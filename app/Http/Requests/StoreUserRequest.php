@@ -30,6 +30,7 @@ class StoreUserRequest extends FormRequest
             'tel' => ['required', 'numeric', 'digits_between:9,12'],
             'email' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'account_type' => ['required', 'numeric', 'digits_between:0,2'],
         ];
     }
 }

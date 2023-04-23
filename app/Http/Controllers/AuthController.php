@@ -22,9 +22,12 @@ class AuthController extends Controller
         }
 
         $user = User::where('email', $request -> email) -> first();
+        $userDetails = null;
+        if($user -> userDetails) $userDetails = $user -> userDetails;
 
         return $this -> success([
             'user' => $user,
+            'user_details' => $userDetails,
             'token' => $user -> createToken('API Token of ' . $user -> name) -> plainTextToken
         ]);
     }
@@ -38,6 +41,7 @@ class AuthController extends Controller
             'tel' => $request -> tel,
             'email' => $request -> email,
             'password' => Hash::make($request -> password),
+            'account_type' => $request -> account_type,
         ]);
         return $this -> success([
             'user' => $user,
