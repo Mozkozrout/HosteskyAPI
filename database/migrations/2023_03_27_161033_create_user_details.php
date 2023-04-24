@@ -29,6 +29,12 @@ return new class extends Migration
             $table -> boolean('cashier_exp') -> nullable();
             $table -> boolean('entrance_exp') -> nullable();
             $table -> boolean('infodesk_exp') -> nullable();
+            $table -> date('birthdate') -> nullable();
+            $table -> string('state') -> nullable();
+            $table -> string('city') -> nullable();
+            $table -> string('street') -> nullable();
+            $table -> integer('cis_pop') -> nullable();
+            $table -> integer('psc') -> nullable();
             $table -> foreign('user_id') -> references('id') -> on('users') -> onDelete('cascade');
             $table->timestamps();
         });

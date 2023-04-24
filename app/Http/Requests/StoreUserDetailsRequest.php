@@ -37,6 +37,12 @@ class StoreUserDetailsRequest extends FormRequest
             'cashier_exp' => ['numeric', 'digits_between:0,1'],
             'entrance_exp' => ['numeric', 'digits_between:0,1'],
             'infodesk_exp' => ['numeric', 'digits_between:0,1'],
+            'birthdate' => ['date', 'before:today'],
+            'state' => ['string', 'max:255'],
+            'city' => ['string', 'max:255'],
+            'street' => ['string', 'max:255'],
+            'cis_pop' => ['numeric', 'digits_between:1,99999'],
+            'psc' => ['numeric', 'digits_between:1,99999']
         ];
     }
 }

@@ -29,6 +29,12 @@ class UserDetails extends Model
         'cashier_exp',
         'entrance_exp',
         'infodesk_exp',
+        'birthdate',
+        'state',
+        'city',
+        'street',
+        'cis_pop',
+        'psc'
     ];
 
     public function user(){
