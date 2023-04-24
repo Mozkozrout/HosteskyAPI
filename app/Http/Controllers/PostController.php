@@ -36,6 +36,7 @@ class PostController extends Controller
         
         $post = Post::create([
             'user_id' => Auth::user() -> id,
+            'post_type' => $request -> post_type,
             'name' => $request -> name,
             'headline' => $request -> headline,
             'text' => $request -> text,

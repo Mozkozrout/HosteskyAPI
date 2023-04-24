@@ -24,6 +24,7 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
+            'post_type' => ['required', 'numeric', 'digits_between:0,2'],
             'name' => ['required', 'max:255'],
             'headline' => ['max:255'],
             'text' => ['max:5000'],

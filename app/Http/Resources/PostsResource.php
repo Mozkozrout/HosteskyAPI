@@ -17,6 +17,7 @@ class PostsResource extends JsonResource
         return [
             'id' => (string) $this -> id,
             'attributes' => [
+                'post_type' => $this -> post_type,
                 'name' => $this -> name,
                 'headline' => $this -> headline,
                 'text' => $this -> text,
