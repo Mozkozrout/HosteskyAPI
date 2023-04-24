@@ -31,6 +31,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::post('/getuser', [AuthController::class, 'getUser']);
+        Route::post('/getallusers', [AuthController::class, 'getAllUsers']);
         Route::resource('/posts', PostController::class);
         Route::get('/myposts', [PostController::class, 'myPosts']);
         //Route::resource('/posts', [PostController::class, 'store']);

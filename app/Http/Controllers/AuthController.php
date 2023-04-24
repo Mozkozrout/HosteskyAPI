@@ -67,4 +67,18 @@ class AuthController extends Controller
             'user_details' => $userDetails
         ]);
     }
+
+    public function getAllUsers(){
+        $user = Auth::user();
+        $allUsers = null;
+        if($user -> account_type == 2){
+            $allUsers = User::leftJoin('user_details', 'users.id', '=', 'user_details.user_id')
+            ->select('users.name','users.surname','users.tel','users.email', 'user_details.*')
+            ->get();
+        }
+
+        return $this -> success([
+            'allUsers' => $allUsers
+        ]);
+    }
 }
