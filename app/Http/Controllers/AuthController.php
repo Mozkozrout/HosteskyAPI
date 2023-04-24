@@ -58,6 +58,13 @@ class AuthController extends Controller
     }
 
     public function getUser(){
-        return Auth::user(); 
+        $user = Auth::user();
+        $userDetails = null;
+        if($user -> userDetails) $userDetails = $user -> userDetails;
+
+        return $this -> success([
+            'user' => $user,
+            'user_details' => $userDetails
+        ]);
     }
 }
